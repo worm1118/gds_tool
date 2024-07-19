@@ -276,7 +276,7 @@ category_list = [
     { 
         'type' : 'share_reading', 
         'name' : '리딩', 
-        'category_list' : ['웹툰', '만화', '책-epub', '책-스캔', '책-txt', '기타']
+        'category_list' : ['일반', '웹툰', '만화고화질', '만화', '웹소설', '라노벨', '화보', '잡지', '기타']
     },
     { 
         'type' : 'share_etc', 
