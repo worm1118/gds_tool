@@ -1,4 +1,6 @@
 ## Changelog
+- 1.1.18 (2024.07.31)   
+ Drive Activity API 사용 라이브러리 추가.    
 
 - 1.1.17 (2024.07.19)   
   S-READING 카테고리 변경.   

@@ -57,10 +57,12 @@ from plugin import *
 
 P = create_plugin_instance(setting)
 try:
+    from .mod_activity import ModuleActivity
     from .mod_cdn import ModuleCdn
     from .mod_fp import ModuleFP
     from .mod_request import ModelRequestItem, ModuleRequest
     from .mod_upload import ModuleUpload
+    from .model import ModelActivity
 
     if os.path.exists(os.path.join(os.path.dirname(__file__), 'mod_route.py')):
         from .mod_route import ModuleRoute
@@ -68,8 +70,10 @@ try:
         from support import SupportSC
         ModuleRoute = SupportSC.load_module_P(P, 'mod_route').ModuleRoute
 
-    P.set_module_list([ModuleRoute, ModuleRequest, ModuleFP, ModuleUpload, ModuleCdn])
+    P.set_module_list([ModuleRoute, ModuleRequest, ModuleFP, ModuleUpload, ModuleCdn, ModuleActivity])
     P.ModelRequestItem = ModelRequestItem
+    P.ModelActivity = ModelActivity
+   
 
     from support import SupportSC
     if os.path.exists(os.path.join(os.path.dirname(__file__), 'worker.py')):

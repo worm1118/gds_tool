@@ -10,3 +10,4 @@ mod_route.py
 *.log
 메모.txt
 gdrive.py
+activity.py
