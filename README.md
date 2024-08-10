@@ -1,4 +1,7 @@
 ## Changelog
+- 1.2.1 (2024.08.10)   
+  host 변경   
+
 - 1.1.18 (2024.07.31)   
  Drive Activity API 사용 라이브러리 추가.    
 

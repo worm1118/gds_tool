@@ -245,7 +245,7 @@ class ModuleUpload(PluginModuleBase):
             import json
 
             import requests
-            res = requests.post(f"{F.config['DEFINE']['WEB_DIRECT_URL']}/ff/ff_share_upload.php", data={'data':json.dumps(data)})
+            res = requests.post(f"https://sjva.me/ff/ff_share_upload.php", data={'data':json.dumps(data)})
             return res.json()
         except Exception as e: 
             P.logger.error('Exception:%s', e)
