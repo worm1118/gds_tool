@@ -100,7 +100,7 @@ class ModuleUpload(PluginModuleBase):
     def upload(self, arg1):
         try:
             def add_text(msg):
-                F.socketio.emit("command_modal_add_text", msg, namespace='/framework', broadcast=True)
+                F.socketio.emit("command_modal_add_text", msg, namespace='/framework', to='all')
             
             data = self.arg_to_dict(arg1)
             try:
@@ -143,8 +143,8 @@ class ModuleUpload(PluginModuleBase):
                 gdrive_remote = remote_path.split(':')[0]
                 server_remote = '{gdrive_remote}:{{{upload_folderid}}}'.format(gdrive_remote=gdrive_remote, upload_folderid=upload_folderid)
 
-                F.socketio.emit("command_modal_clear", None, namespace='/framework', broadcast=True)
-                F.socketio.emit("command_modal_show", '업로드', namespace='/framework', broadcast=True)
+                F.socketio.emit("command_modal_clear", None, namespace='/framework', to='all')
+                F.socketio.emit("command_modal_show", '업로드', namespace='/framework', to='all')
                 add_text('업로드를 시작합니다.\n\n')
                 add_text('1. 업로드 가능 테스트.\n')
                 

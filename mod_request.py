@@ -264,18 +264,18 @@ class ModuleRequest(PluginModuleBase):
                 size_data = P.SupportRcloneWorker.size(remote)
                 if size_data['count'] > 1000:
                     data = {'title':'요청 실패', 'data' : f"파일 수 {size_data['count']}"}
-                    F.socketio.emit("modal", data, namespace='/framework', broadcast=True)
+                    F.socketio.emit("modal", data, namespace='/framework', to='all')
                     return
             except:
                 data = {'title':'요청 실패', 'data' : "접근 불가"}
-                F.socketio.emit("modal", data, namespace='/framework', broadcast=True)
+                F.socketio.emit("modal", data, namespace='/framework', to='all')
                 return
             #ret = self.add_copy(source_id, "", "direct", "", size_data['bytes'], size_data['count'], copy_type='folder' if len(lsjson) > 0 else "file", remote_path=remote_path)
             ret = self.add_copy(source_id, "", "direct", "", size_data['bytes'], size_data['count'], copy_type='folder', remote_path=remote_path)
             #logger.error(ret)
             if ret['ret'] == 'already':
                 data = {'title':'요청 실패', 'data' : "DB에 있음"}
-                F.socketio.emit("modal", data, namespace='/framework', broadcast=True)
+                F.socketio.emit("modal", data, namespace='/framework', to='all')
                 return
  
         thread = threading.Thread(target=func, args=(self, source_id, remote_path))
