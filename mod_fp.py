@@ -184,6 +184,11 @@ class ModelFPItem(ModelBase):
                 db_item.scan_mode = 'ADD'
                 db_item.data = data
                 db_item.gds_path = data['msg']['data']['gds_path']
+            elif data['ch'] == 'bot_gds_av':
+                db_item.mode = 'AV'
+                db_item.scan_mode = 'ADD'
+                db_item.data = data
+                db_item.gds_path = data['msg']['data']['gds_path']
             elif data['ch'] == 'bot_gds_user':
                 db_item.mode = 'USER'
                 db_item.scan_mode = data['msg']['data']['scan_mode']
